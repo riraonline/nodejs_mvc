@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Mahasiswa</title>
+    <style>
+      input {
+        width: 330px;
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 17px;
+      }
+      label,
+      button {
+        font-size: 18px;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Informasi Mahasiswa</h1>
+    <form>
+      <label for="name">Nama: </label>
+      <input type="text" name="name" value="<%= student.name %>" disabled />
+      <br /><br />
+      <label for="gender">Gender: </label>
+      <input type="text" name="gender" value="<%= student.gender %>" disabled />
+      <br /><br />
+      <label for="age">Umur: </label>
+      <input type="number" name="age" value="<%= student.age %>" disabled />
+      <br /><br />
+      <label for="email">Email: </label>
+      <input type="text" name="email" value="<%= student.email %>" disabled />
+      <br /><br />
+      <label for="major">Jurusan: </label>
+      <input type="text" name="major" value="<%= student.major %>" disabled />
+      <br /><br />
+      <label for="university">Universitas: </label>
+      <input
+        type="text"
+        name="university"
+        value="<%= student.university %>"
+        disabled
+      />
+      <br /><br />
+    </form>
+    <h1>Nama Dosen:</h1>
+    <% student.lecture.forEach(lecture => { %>
+    <div><a href="/lectures/<%= lecture._id %>"><%= lecture.name %></a></div>
+    <% }) %>
+    <br /><br />
+    <button type="button">
+      <a href="/students">All Student</a>
+    </button>
+    <button type="button">
+      <a href="/lectures">All Lecture</a>
+    </button>
+    <button type="button">
+      <a href="/students/<%= student._id %>/edit">Edit Data</a>
+    </button>
+    <br /><br />
+    <form action="/students/<%= student._id %>?_method=DELETE" method="post">
+      <button type="submit">Delete Data</button>
+    </form>
+  </body>
+</html>

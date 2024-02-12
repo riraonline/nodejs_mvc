@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Dosen</title>
+    <style>
+      input {
+        width: 330px;
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 17px;
+      }
+      label,
+      button {
+        font-size: 18px;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Informasi Dosen</h1>
+    <form>
+      <label for="name">Nama: </label>
+      <input type="text" name="name" value="<%= lecture.name %>" disabled />
+      <br /><br />
+      <label for="gender">Gender: </label>
+      <input type="text" name="gender" value="<%= lecture.gender %>" disabled />
+      <br /><br />
+      <label for="age">Umur: </label>
+      <input type="number" name="age" value="<%= lecture.age %>" disabled />
+      <br /><br />
+      <label for="address">Alamat: </label>
+      <input
+        type="text"
+        name="address"
+        value="<%= lecture.address %>"
+        disabled
+      />
+      <br /><br />
+      <label for="course">Mata Kuliah: </label>
+      <input type="text" name="course" value="<%= lecture.course %>" disabled />
+      <br /><br />
+    </form>
+    <h2>Daftar Mahasiswa</h2>
+    <ul>
+      <% for( let student of lecture.students ) { %>
+      <li>
+        <a href="/students/<%= student._id %>"
+          ><%= student.name %> - <%= student.major %> - <%= student.university
+          %></a
+        >
+      </li>
+      <% } %>
+    </ul>
+    <button type="button">
+      <a href="/lectures">All Data</a>
+    </button>
+    <button type="button">
+      <a href="/lectures/<%= lecture._id %>/edit">Edit Data</a>
+    </button>
+    <button type="button">
+      <a href="/lectures/<%= lecture._id %>/students/create">Add Student</a>
+    </button>
+    <br /><br />
+    <form action="/lectures/<%= lecture._id %>?_method=DELETE" method="post">
+      <button type="submit">Delete Data</button>
+    </form>
+  </body>
+</html>

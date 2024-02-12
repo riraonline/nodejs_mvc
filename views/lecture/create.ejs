@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create new Data</title>
+    <style>
+      input {
+        width: 330px;
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 17px;
+      }
+      label,
+      button {
+        font-size: 18px;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lecture Data Form</h1>
+    <form action="/lectures" method="post">
+      <label for="name">Nama: </label>
+      <input type="text" name="name" />
+      <br /><br />
+      <label for="gender">Gender: </label>
+      <input type="radio" name="gender" value="Male" />Male
+      <input type="radio" name="gender" value="Female" />Female <br /><br />
+      <label for="age">Umur: </label>
+      <input type="number" name="age" />
+      <br /><br />
+      <label for="address">Alamat: </label>
+      <input type="text" name="address" />
+      <br /><br />
+      <label for="course">Mata Kuliah: </label>
+      <input type="text" name="course" />
+      <br /><br />
+      <button type="submit">Save Data</button>
+      <br /><br />
+    </form>
+    <button type="button">
+      <a href="/lectures">All Data</a>
+    </button>
+  </body>
+</html>

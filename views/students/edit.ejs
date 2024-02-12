@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update and Change Data</title>
+    <style>
+      input {
+        width: 330px;
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 17px;
+      }
+      label,
+      button {
+        font-size: 18px;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Student Data Form</h1>
+    <form action="/students/<%= student._id %>?_method=PUT" method="post">
+      <label for="name">Nama: </label>
+      <input type="text" name="name" value="<%= student.name %>" />
+      <br /><br />
+      <label for="gender">Gender: </label>
+      <input type="radio" name="gender" value="Male" <%= student.gender ===
+      'Male' ? 'checked' : '' %> />Male <input type="radio" name="gender"
+      value="Female" <%= student.gender === 'Female' ? 'checked' : '' %>
+      />Female <br /><br />
+      <label for="age">Umur: </label>
+      <input type="number" name="age" value="<%= student.age %>" />
+      <br /><br />
+      <label for="email">Email: </label>
+      <input type="text" name="email" value="<%= student.email %>" />
+      <br /><br />
+      <label for="major">Jurusan: </label>
+      <input type="text" name="major" value="<%= student.major %>" />
+      <br /><br />
+      <label for="university">Universitas: </label>
+      <input type="text" name="university" value="<%= student.university %>" />
+      <br /><br />
+      <button type="submit">Change Data</button>
+      <button type="button">
+        <a href="/students/<%= student._id %>">Cancel</a>
+      </button>
+      <br /><br />
+    </form>
+    <button type="button">
+      <a href="/students">All Data</a>
+    </button>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar MVC</title>
+  </head>
+  <body>
+    <h1>Lectures Data</h1>
+    <p><%= flash_messages %></p>
+    <button type="button">
+      <a href="/lectures/create">Add New Data</a>
+    </button>
+    <ul>
+      <% for( let lecture of lectures ) { %>
+      <li>
+        <a href="/lectures/<%= lecture._id %>">
+          <%= lecture.name %> - <%= lecture.course %> - (===<a
+            href="/lectures?gender=<%= lecture.gender %>"
+            ><%= lecture.gender %></a
+          >===)
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>

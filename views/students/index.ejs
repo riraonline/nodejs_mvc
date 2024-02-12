@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar MVC</title>
+  </head>
+  <body>
+    <h1><%= gender %> Students Data</h1>
+    <button type="button">
+      <a href="/students/create">Add New Data</a>
+    </button>
+    <button type="button">
+      <a href="/lectures">All Lectures</a>
+    </button>
+    <% if (gender !== 'All') { %>
+    <button type="button">
+      <a href="/students">Refresh</a>
+    </button>
+    <% } %>
+    <ul>
+      <% for( let student of students ) { %>
+      <li>
+        <a href="/students/<%= student._id %>">
+          <%= student.name %> - <%= student.email %> - (===<a
+            href="/students?gender=<%= student.gender %>"
+            ><%= student.gender %></a
+          >===)
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
